@@ -6,7 +6,7 @@ namespace MinboxTestLibrary
 {
     class Check
     {
-        public void GetNumber(out int number)
+        public void CheckNumberInput(out double number)
         {
             bool isNumberEntered = false;
             string userInput = "";
@@ -14,18 +14,20 @@ namespace MinboxTestLibrary
             while (isNumberEntered == false)
             {
                 userInput = Console.ReadLine();
-                bool success = int.TryParse(userInput, out number);
+                bool success = double.TryParse(userInput, out number);
 
-                if (success == true)
+                if (success == true && number > 0)
                 {
                     isNumberEntered = true;
                 }
                 else
                 {
-                    Console.WriteLine("Введено не число. Повторите попытку");
+                    Console.WriteLine("Введено не число или введено значения равное 0. Повторите попытку");
                 }
             }
-            number = int.Parse(userInput);
+
+            number = double.Parse(userInput);
+
             Console.WriteLine("Число " + number + " Записано");
         }
     }

@@ -7,38 +7,34 @@ namespace MinboxTestLibrary
 {
     class CalculateTriangle
     {
-        Check check = new Check();
+        private Check _check = new Check();
 
-        public CalculateTriangle()
-        {
-        
-        }
-
-        private void GetSides(out int sideOne, out int sideTwo, out int sideThree)
+        private void GetSides(out double sideOne, out double sideTwo, out double sideThree)
         {
             Console.WriteLine("Введите значение стороны 1");
 
-            check.GetNumber(out sideOne);
+            _check.CheckNumberInput(out sideOne);
 
             Console.WriteLine("Введите значение стороны 2");
 
-            check.GetNumber(out sideTwo);
+            _check.CheckNumberInput(out sideTwo);
 
             Console.WriteLine("Введите значение стороны 3");
 
-            check.GetNumber(out sideThree);
+            _check.CheckNumberInput(out sideThree);
         }
 
-        private void CalculateTriangleArea()
+        public void CalculateArea(out double area)
         {
-            int sideOne;
-            int sideTwo;
-            int sideThree;
+            double sideOne;
+            double sideTwo;
+            double sideThree;
 
             GetSides(out sideOne, out sideTwo, out sideThree);
 
-            int halfPerimetr = (sideOne + sideTwo + sideThree) / 2;
-            int area = Convert.ToInt32(Math.Sqrt(halfPerimetr * (halfPerimetr - sideOne) * (halfPerimetr - sideTwo) * (halfPerimetr - sideThree)));
+            double halfPerimetr = (sideOne + sideTwo + sideThree) / 2;
+
+            area = Convert.ToDouble(Math.Sqrt(halfPerimetr * (halfPerimetr - sideOne) * (halfPerimetr - sideTwo) * (halfPerimetr - sideThree)));
         }
     }
 }
