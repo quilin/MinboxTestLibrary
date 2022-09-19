@@ -1,44 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MinboxTestLibrary;
 
 namespace MinboxTestLibrary
 {
     class CalculateTriangle
     {
-        Check check = new Check();
-
-        public CalculateTriangle()
-        {
-        
-        }
-
-        private void GetSides(out int sideOne, out int sideTwo, out int sideThree)
+        private double GetSide()
         {
             Console.WriteLine("Введите значение стороны 1");
-
-            check.GetNumber(out sideOne);
-
-            Console.WriteLine("Введите значение стороны 2");
-
-            check.GetNumber(out sideTwo);
-
-            Console.WriteLine("Введите значение стороны 3");
-
-            check.GetNumber(out sideThree);
+            return Check.CheckNumberInput();
         }
 
-        private void CalculateTriangleArea()
+        public double CalculateArea()
         {
-            int sideOne;
-            int sideTwo;
-            int sideThree;
+            var side1 = GetSide();
+            var side2 = GetSide();
+            var side3 = GetSide();
+            // TODO: Стороны надо провалидировать! Иначе можно создать треугольник со сторонами (10, 2, 3)
 
-            GetSides(out sideOne, out sideTwo, out sideThree);
-
-            int halfPerimetr = (sideOne + sideTwo + sideThree) / 2;
-            int area = Convert.ToInt32(Math.Sqrt(halfPerimetr * (halfPerimetr - sideOne) * (halfPerimetr - sideTwo) * (halfPerimetr - sideThree)));
+            var halfPerimeter = (side1 + side2 + side3) / 2;
+            return Math.Sqrt(halfPerimeter * (halfPerimeter - side1) * (halfPerimeter - side2) * (halfPerimeter - side3));
         }
     }
 }
