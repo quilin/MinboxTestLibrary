@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace MinboxTestLibrary
 {
     internal class Check
@@ -15,7 +16,8 @@ namespace MinboxTestLibrary
                 }
 
                 Console.WriteLine("Введено не число или введено значения равное 0. Повторите попытку");
-            } while (true);
+            } 
+            while (true);
         }
     }
 }
